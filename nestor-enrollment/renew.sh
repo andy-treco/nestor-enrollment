@@ -3,7 +3,9 @@
 CERT=$CERT_DIR/device.crt
 
 # Vérifie expiration dans 10 jours
-if openssl x509 -checkend 864000 -noout -in $CERT; then
+#if openssl x509 -checkend 864000 -noout -in $CERT; then
+# 6 heures pour test
+if openssl x509 -checkend 21600 -noout -in $CERT; then
   echo ">> Cert still valid"
   exit 0
 fi
