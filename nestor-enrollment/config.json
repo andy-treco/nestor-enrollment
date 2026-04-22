@@ -12,7 +12,7 @@
   "map": ["ssl:rw"],
 
   "options": {
-    "api_url": "https://api.monsite.com",
+    "api_url": "https://apinestor-poc-echtfte3cmfjfufz.francecentral-01.azurewebsites.net",
     "device_id": "",
     "affaire": "",
     "token": ""
