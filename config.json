@@ -1,0 +1,24 @@
+{
+  "name": "Cert Enrollment",
+  "version": "1.1",
+  "slug": "cert_enrollment",
+  "startup": "services",
+  "boot": "auto",
+  "host_network": true,
+
+  "map": ["ssl:rw"],
+
+  "options": {
+    "api_url": "https://apinestor-poc-echtfte3cmfjfufz.francecentral-01.azurewebsites.net",
+    "device_id": "",
+    "affaire": "",
+    "token": ""
+  },
+
+  "schema": {
+    "api_url": "str",
+    "device_id": "str",
+    "affaire": "str",
+    "token": "password"
+  }
+}
