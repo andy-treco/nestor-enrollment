@@ -2,14 +2,17 @@
   "name": "Cert Enrollment",
   "version": "1.1",
   "slug": "cert_enrollment",
+  "description": "Enroll and renew X509 certificates via API",
   "startup": "services",
   "boot": "auto",
-  "host_network": true,
 
+  "arch": ["amd64", "aarch64", "armv7"],
+
+  "host_network": true,
   "map": ["ssl:rw"],
 
   "options": {
-    "api_url": "https://apinestor-poc-echtfte3cmfjfufz.francecentral-01.azurewebsites.net",
+    "api_url": "https://api.monsite.com",
     "device_id": "",
     "affaire": "",
     "token": ""
