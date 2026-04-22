@@ -24,11 +24,11 @@ echo ">> Cert dir: $CERT_DIR"
 # enrôlement initial
 if [ ! -f "$CERT_DIR/device.crt" ]; then
   echo ">> First enrollment"
-  /app/enroll.sh
+  /enroll.sh
 fi
 
 # boucle de renouvellement
 while true; do
-  /app/renew.sh
+  /renew.sh
   sleep 86400
 done
