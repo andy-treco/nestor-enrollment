@@ -12,13 +12,12 @@ openssl req -new -key $CERT_DIR/device.key \
 -addext "subjectAltName=DNS:$DEVICE_ID"
 
 CSR=$(awk '{printf "%s\\n", $0}' $CERT_DIR/device.csr)
-
+echo "La CSR : est $CSR"
 echo ">> Calling enrollment API"
 
 RESPONSE=$(curl -s -X POST "$API_URL/enroll" \
   -H "Content-Type: application/json" \
   -d "{
-    \"device_id\": \"$DEVICE_ID\",
     \"affaire\": \"$AFFAIRE\",
     \"token\": \"$TOKEN\",
     \"csr\": \"$CSR\"

@@ -17,7 +17,7 @@ openssl req -new -key $CERT_DIR/device.key \
 -addext "subjectAltName=DNS:$DEVICE_ID"
 
 CSR=$(awk '{printf "%s\\n", $0}' $CERT_DIR/device.csr)
-
+echo "La CSR : est $CSR"
 RESPONSE=$(curl -s -X POST "$API_URL/renew" \
   --cert $CERT_DIR/device.crt \
   --key $CERT_DIR/device.key \
