@@ -1,6 +1,6 @@
 {
   "name": "Cert Enrollment",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "slug": "cert_enrollment",
   "description": "Enroll and renew X509 certificates via API",
   "startup": "services",
@@ -12,15 +12,13 @@
   "map": ["ssl:rw"],
 
   "options": {
-    "api_url": "https://apinestor-poc-echtfte3cmfjfufz.francecentral-01.azurewebsites.net",
-    "device_id": "",
+    "api_url": "https://apinestor-poc-echtfte3cmfjfufz.francecentral-01.azurewebsites.net/api",
     "affaire": "",
     "token": ""
   },
 
   "schema": {
     "api_url": "str",
-    "device_id": "str",
     "affaire": "str",
     "token": "password"
   }

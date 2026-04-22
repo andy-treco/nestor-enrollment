@@ -8,8 +8,8 @@ chmod 600 $CERT_DIR/device.key
 echo ">> Generating CSR"
 openssl req -new -key $CERT_DIR/device.key \
 -out $CERT_DIR/device.csr \
--subj "/CN=$DEVICE_ID" \
--addext "subjectAltName=DNS:$DEVICE_ID"
+-subj "/CN=$AFFAIRE" \
+-addext "subjectAltName=DNS:$AFFAIRE"
 
 CSR=$(awk '{printf "%s\\n", $0}' $CERT_DIR/device.csr)
 echo "La CSR : est $CSR"

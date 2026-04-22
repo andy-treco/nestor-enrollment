@@ -7,18 +7,17 @@ mkdir -p $CERT_DIR
 
 # lecture config
 API_URL=$(jq -r '.api_url' $CONFIG)
-DEVICE_ID=$(jq -r '.device_id' $CONFIG)
 AFFAIRE=$(jq -r '.affaire' $CONFIG)
 TOKEN=$(jq -r '.token' $CONFIG)
 
 # fallback hostname si non défini
-if [ -z "$DEVICE_ID" ] || [ "$DEVICE_ID" = "null" ]; then
-  DEVICE_ID=$(hostname)
+if [ -z "$AFFAIRE" ] || [ "$AFFAIRE" = "null" ]; then
+  AFFAIRE=$(hostname)
 fi
 
-export API_URL DEVICE_ID AFFAIRE TOKEN CERT_DIR
+export API_URL AFFAIRE TOKEN CERT_DIR
 
-echo ">> Device: $DEVICE_ID"
+echo ">> Device: $AFFAIRE"
 echo ">> Cert dir: $CERT_DIR"
 
 # enrôlement initial
