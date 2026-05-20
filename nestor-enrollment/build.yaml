@@ -5,5 +5,5 @@ build_from:
 labels:
   org.opencontainers.image.title: "Nestor Smart Home Provisioning
   org.opencontainers.image.description: "Enroll and renew X509 certificates via API."
-  org.opencontainers.image.source: "https://github.com/TrecobatGroupe/NestorSmartHomeAddon"
+  org.opencontainers.image.source: "https://github.com/andy-treco/nestor-enrollment"
   org.opencontainers.image.licenses: "MIT"
