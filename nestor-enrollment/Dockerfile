@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM ghcr.io/home-assistant/aarch64-base-debian:bookworm
 
 RUN apk add --no-cache bash curl openssl jq
 
