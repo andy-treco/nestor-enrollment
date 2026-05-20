@@ -1,16 +1,16 @@
 #!/bin/bash
 
 CERT=$CERT_DIR/device.crt
-
+TIMESTAMP=$(date "+%d-%m-%Y %H:%M:%S")
 # Vérifie expiration dans 10 jours
 #if openssl x509 -checkend 864000 -noout -in $CERT; then
 # 6 heures pour test
 if openssl x509 -checkend 21600 -noout -in $CERT; then
-  echo ">> Cert still valid"
+  echo "[$TIMESTAMP] >> Cert still valid"
   exit 0
 fi
 
-echo ">> Renewing certificate"
+echo "[$TIMESTAMP] >> Renewing certificate"
 
 # CSR avec clé existante
 openssl req -new -key $CERT_DIR/device.key \
@@ -25,6 +25,7 @@ RESPONSE=$(curl -s -X POST "$API_URL/renew" \
   --key $CERT_DIR/device.key \
   -H "Content-Type: application/json" \
   -d "{
+    \"token\": \"$TOKEN\",
     \"csr\": \"$CSR\"
   }")
 
@@ -35,4 +36,4 @@ mv $CERT_DIR/device.crt.new $CERT_DIR/device.crt
 
 chmod 644 $CERT_DIR/device.crt
 
-echo ">> Renewal done"
+echo "[$TIMESTAMP] >> Renewal done"

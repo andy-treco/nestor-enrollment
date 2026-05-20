@@ -2,7 +2,7 @@
 
 CONFIG=/data/options.json
 CERT_DIR=/ssl/certs
-
+TIMESTAMP=$(date "+%d-%m-%Y %H:%M:%S")
 mkdir -p $CERT_DIR
 
 # lecture config
@@ -17,17 +17,17 @@ fi
 
 export API_URL AFFAIRE TOKEN CERT_DIR
 
-echo ">> Device: $AFFAIRE"
-echo ">> Cert dir: $CERT_DIR"
+echo "[$TIMESTAMP] >> Device: $AFFAIRE"
+echo "[$TIMESTAMP] >> Cert dir: $CERT_DIR"
 
 # enrôlement initial
 if [ ! -f "$CERT_DIR/device.crt" ]; then
-  echo ">> First enrollment"
+  echo "[$TIMESTAMP] >> First enrollment"
   /enroll.sh
 fi
 
 # boucle de renouvellement
 while true; do
   /renew.sh
-  sleep 86400
+  sleep 1800
 done
